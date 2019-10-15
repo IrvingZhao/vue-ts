@@ -37,3 +37,13 @@ declare interface LoadingBar {
 
     destroy(): void;
 }
+
+declare module "vue/types/vue" {
+    interface Vue {
+        $loadingBar: LoadingBar;
+    }
+
+    interface VueConstructor {
+        $loadingBar: LoadingBar;
+    }
+}
