@@ -1,4 +1,4 @@
 import {Vue} from "vue-property-decorator";
 
-export declare class ScrollArea extends Vue {
+export declare class XlbScrollItem extends Vue {
 }

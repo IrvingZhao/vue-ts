@@ -2,7 +2,7 @@ import {Vue} from "vue-property-decorator";
 
 export type ScrollType = "page" | "item";
 
-export declare class ScrollArea extends Vue {
+export declare class XlbScrollArea extends Vue {
     public itemWidth: string | number;
     public perSize: number;
     public scrollType: ScrollType | number;
