@@ -17,6 +17,7 @@
     "max-line-length": [true,150],
     "quotemark": [true, "double","jsx-double"],
     "no-console": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "jsdoc-format": [false]
   }
 }
