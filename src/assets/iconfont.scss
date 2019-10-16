@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1455183 */
+  src: url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.eot');
+  src: url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1455183_l3ioo4g7ntb.svg#iconfont') format('svg');
+}
+
+*[class^="sys-icon-"], *[class*=" sys-icon-"] {
+  font-family: "iconfont", serif !important;
+  /* 以下内容参照第三方图标库本身的规则 */
+  font-size: inherit;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sys-icon-attendance:before {
+  content: "\e618";
+}
+
+.sys-icon-gear-b:before {
+  content: "\e622";
+}
+
+.sys-icon-clipboard:before {
+  content: "\e623";
+}
+
+.sys-icon-person-stalker:before {
+  content: "\e624";
+}
+
+.sys-icon-ios-briefcase-outline:before {
+  content: "\e625";
+}
+
+.sys-icon-link:before {
+  content: "\e626";
+}
+
+.sys-icon-ios-list-outline:before {
+  content: "\e627";
+}
+
+.sys-icon-ios-home:before {
+  content: "\e628";
+}
+
+.sys-icon-person-add:before {
+  content: "\e629";
+}
+
+.sys-icon-calendar:before {
+  content: "\e62a";
+}
+
+.sys-icon-prevpage:before {
+  content: "\e62b";
+}
+
+.sys-icon-nextpage:before {
+  content: "\e62c";
+}
+
+.sys-icon-menu:before {
+  content: "\e62d";
+}
