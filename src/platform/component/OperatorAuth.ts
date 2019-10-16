@@ -7,13 +7,13 @@ const ConfigStore = namespace("base_config");
 @Component<OperatorAuth>({
     name: "xlb-operator-auth",
     render(createElement: CreateElement) {
-        let childArray = [];
+        const childArray = [];
         const slots = this.$scopedSlots;
-        for (let key in slots) {
+        for (const key in slots) {
             if (slots.hasOwnProperty(key)) {
-                let slotItem = slots[key];
+                const slotItem = slots[key];
                 if (slotItem) {
-                    let childNode = slotItem({});
+                    const childNode = slotItem({});
                     if (childNode) {
                         childArray.push(createElement("template", {slot: key}, [...childNode]));
                     }
