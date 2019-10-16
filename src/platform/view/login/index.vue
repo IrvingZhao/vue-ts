@@ -40,7 +40,6 @@
 
     @Component<Login>({
         mounted() {
-            console.info(this);
             this.updateVerCode();
         }
     })

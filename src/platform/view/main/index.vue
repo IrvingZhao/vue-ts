@@ -93,9 +93,8 @@ export default class MainPage extends Vue {
     }
 
     private menuSelect(menuIndex: any, menuIndexTree: any, component: any) {
-        console.info(menuIndexTree);
         menuIndexTree.forEach((item: any) => {
-            console.info(this.menuMap[item]);
+            // TODO 面包屑
         });
         if (component.route) {
             this.$router.push(component.route); // 页面跳转
