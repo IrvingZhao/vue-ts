@@ -1,0 +1,95 @@
+.gm-scrollbar-disable-selection {
+  user-select: none;
+}
+
+.gm-prevented {
+  -webkit-overflow-scrolling: touch;
+
+  > .gm-scrollbar {
+    display: none;
+  }
+}
+
+.gm-scrollbar-container {
+  position: relative;
+  overflow: hidden !important;
+  width: 100%;
+  height: 100%;
+
+  .gm-scrollbar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    border-radius: 3px;
+    background: $--scrollbar-bg-color;
+
+    &.-vertical {
+      width: 6px;
+      top: 2px;
+
+      .thumb {
+        width: 100%;
+      }
+    }
+
+    &.-horizontal {
+      height: 6px;
+      left: 2px;
+
+      .thumb {
+        height: 100%;
+      }
+    }
+
+    .thumb {
+      position: relative;
+      display: block;
+      width: 0;
+      height: 0;
+      cursor: pointer;
+      border-radius: inherit;
+      /*background-color: rgba(0,0,0,.2);*/
+      background: $--thumb-color;
+      transform: translate3d(0, 0, 0);
+
+      &:hover, &:active {
+        background: $--thumb-active-color;
+      }
+    }
+  }
+
+  .gm-scroll-view {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    transform: translate3d(0, 0, 0);
+    overflow-scrolling: touch;
+  }
+
+  &.gm-autoshow {
+    > .gm-scrollbar {
+      opacity: 0;
+      transition: opacity 120ms ease-out;
+    }
+
+    &:hover, &:active, &:focus {
+      opacity: 1;
+      transition: opacity 340ms ease-out;
+    }
+  }
+}
+
+.gm-resize-trigger {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+}
+
