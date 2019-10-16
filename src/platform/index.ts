@@ -5,6 +5,7 @@ import RouterConfig from "@/platform/config/RouterConfig";
 import Component from "./component";
 import App from "@/platform/App.vue";
 import {RouteConfig} from "vue-router";
+import "./assets/style/index.scss";
 
 let platformOption: PlatformOption;
 
