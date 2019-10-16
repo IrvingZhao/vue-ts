@@ -1,6 +1,7 @@
 import {VueConstructor} from "vue";
 import DateFormatter from "./dateFormatter";
 import LoadingBar from "./loadingBar";
+import {GeminiScroll} from "@/plugin/feature/geminiScrollbar/GeminiScroll";
 
 export default function install(Vue: VueConstructor) {
     Vue.filter("simpleDate", (val: Date | number) => {
@@ -20,5 +21,5 @@ export default function install(Vue: VueConstructor) {
 }
 
 export {
-    DateFormatter
+    DateFormatter, GeminiScroll
 };
