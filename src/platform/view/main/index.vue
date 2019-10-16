@@ -42,71 +42,71 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from "vue-property-decorator";
-    import {namespace} from "vuex-class";
-    import MenuItem from "./component/MenuItem.vue";
-    import {ItemBread} from "@/platform/types";
+import {Component, Vue} from "vue-property-decorator";
+import {namespace} from "vuex-class";
+import MenuItem from "./component/MenuItem.vue";
+import {ItemBread} from "@/platform/types";
 
-    const MenuStore = namespace("base_menu");
-    const SystemStore = namespace("base_system");
-    const UserStore = namespace("base_user");
-    const BreadStore = namespace("base_bread");
+const MenuStore = namespace("base_menu");
+const SystemStore = namespace("base_system");
+const UserStore = namespace("base_user");
+const BreadStore = namespace("base_bread");
 
-    @Component<MainPage>({
-        components: {MenuItem},
-        mounted() {
-            this.$bread.set([{name: "首页"}]);
-            this.initUserAuth();
-        }
-    })
-    export default class MainPage extends Vue {
-        @MenuStore.Action("initUserAuth") initUserAuth: any;
+@Component<MainPage>({
+    components: {MenuItem},
+    mounted() {
+        this.$bread.set([{name: "首页"}]);
+        this.initUserAuth();
+    }
+})
+export default class MainPage extends Vue {
+    @MenuStore.Action("initUserAuth") public initUserAuth: any;
 
-        @MenuStore.State("menuTree") menuTreeList: any;
-        @MenuStore.State("menuMap") menuMap: any;
+    @MenuStore.State("menuTree") public menuTreeList: any;
+    @MenuStore.State("menuMap") public menuMap: any;
 
-        @SystemStore.State("renderNoAuth") renderNoAuth!: boolean;
+    @SystemStore.State("renderNoAuth") public renderNoAuth!: boolean;
 
-        @UserStore.State("userInfo") userInfo: any;
+    @UserStore.State("userInfo") public userInfo: any;
 
-        @UserStore.Mutation("clearUserData") clearUserData: any;
+    @UserStore.Mutation("clearUserData") public clearUserData: any;
 
-        @BreadStore.State("breadNav") breadList?: ItemBread[];
+    @BreadStore.State("breadNav") public breadList?: ItemBread[];
 
-        private isCollapse = false;
+    private isCollapse = false;
 
-        private scrollBarParam = {
-            createElements: false,
-        };
+    private scrollBarParam = {
+        createElements: false,
+    };
 
-        private breadClick(item: ItemBread, index: number) {
-            if (item.path) {
-                this.$router.push(item.path);
-            } else if (item.click) {
-                item.click();
-                this.$bread.splice(index + 1);
-            }
-        }
-
-        private toggleMenu() {
-            this.isCollapse = !this.isCollapse;
-        }
-
-        private menuSelect(menuIndex: any, menuIndexTree: any, component: any) {
-            console.info(menuIndexTree);
-            menuIndexTree.forEach((item: any) => {
-                console.info(this.menuMap[item]);
-            });
-            if (component.route) {
-                this.$router.push(component.route); // 页面跳转
-            }
-        }
-
-        private logout() {
-            this.clearUserData(); // 清空 登录信息
-            this.$router.push("/login");
+    private breadClick(item: ItemBread, index: number) {
+        if (item.path) {
+            this.$router.push(item.path);
+        } else if (item.click) {
+            item.click();
+            this.$bread.splice(index + 1);
         }
     }
+
+    private toggleMenu() {
+        this.isCollapse = !this.isCollapse;
+    }
+
+    private menuSelect(menuIndex: any, menuIndexTree: any, component: any) {
+        console.info(menuIndexTree);
+        menuIndexTree.forEach((item: any) => {
+            console.info(this.menuMap[item]);
+        });
+        if (component.route) {
+            this.$router.push(component.route); // 页面跳转
+        }
+    }
+
+    private logout() {
+        this.clearUserData(); // 清空 登录信息
+        this.$router.push("/login");
+    }
+}
 </script>
 
 <style lang="scss" src="./css/main.scss">
