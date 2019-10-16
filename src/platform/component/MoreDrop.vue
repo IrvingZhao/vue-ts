@@ -30,8 +30,8 @@
     }
 
     export default class MoreDrop extends RouterMethod {
-        @Prop({type: Object, required: true})
-        private data!: ItemDrop[];
+        @Prop({type: Object})
+        private data: ItemDrop[] | undefined;
 
         @ConfigStore.State("operatorAuth")
         private operatorAuth!: boolean;
