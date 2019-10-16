@@ -1,4 +1,4 @@
-import dateFormat from "../feature/DateFormatter";
+import dateFormat from "@/plugin/feature/dateFormatter";
 
 const sessionStorage = window.sessionStorage;
 
