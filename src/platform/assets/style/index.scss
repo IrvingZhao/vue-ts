@@ -1,0 +1,79 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.el-table {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+
+  td, th {
+    padding: 7px 0;
+  }
+
+  .el-table__fixed, .el-table__fixed-right {
+    border-radius: 8px;
+  }
+
+  th, thead, .el-table__fixed-right-patch {
+    color: #ffffff;
+    font-size: 16px;
+    background: #BCCBDA;
+  }
+
+  &.gm-scrollbar-container {
+    .el-table__body-wrapper {
+      overflow: scroll;
+    }
+  }
+}
+
+.el-button--custom {
+  color: #ffffff;
+  background: #ffa210;
+  border-color: #ffa210;
+
+  &:hover {
+    background: #FFBF5B;
+    border-color: #FFBF5B;
+    color: #ffffff;
+  }
+
+  &:focus {
+    background-color: #FFBF5B;
+    border-color: #FFBF5B;
+    color: #ffffff;
+  }
+}
+
+//.el-button.is-round {
+//  padding: 7px 16px;
+//}
+
+//.el-button.is-circle {
+//  padding: 7px;
+//}
+
+.el-pagination {
+  text-align: center;
+}
+
+.mgr-10 {
+  margin-right: 10px;
+}
+
+.xlb-edit-content {
+  width: 50%;
+  min-width: 700px;
+}
+
+.el-notification__title {
+  line-height: 24px;
+}
+
+.el-notification__content {
+  margin: 0;
+  line-height: 24px;
+}
