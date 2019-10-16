@@ -1,8 +1,9 @@
+import {VueConstructor} from "vue";
+
 import ActiveHeight from "@/plugin/directives/activeHeight";
 import GeminiScrollbar from "@/plugin/directives/geminiScrollbar";
 import Resize from "@/plugin/directives/resize";
 import MockScroll from "./mockScroll";
-import {VueConstructor} from "vue";
 
 export default function install(Vue: VueConstructor) {
     Vue.directive("active-height", new ActiveHeight());
