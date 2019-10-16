@@ -18,10 +18,6 @@
 
     const ConfigStore = namespace("base_config");
 
-    @Component<MoreDrop>({
-        name: "xlb-more-drop",
-    })
-
     declare interface ItemDrop {
         name: string;
         text: string;
@@ -29,6 +25,9 @@
         event?: string;
     }
 
+    @Component<MoreDrop>({
+        name: "xlb-more-drop",
+    })
     export default class MoreDrop extends RouterMethod {
         @Prop({type: Object})
         private data: ItemDrop[] | undefined;

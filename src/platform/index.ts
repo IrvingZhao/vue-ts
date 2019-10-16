@@ -6,10 +6,16 @@ import Component from "./component";
 import App from "@/platform/App.vue";
 import {RouteConfig} from "vue-router";
 
-let platformOption: any;
+let platformOption: PlatformOption;
+
+export interface PlatformOption {
+    loginAuth: boolean;
+    pageAuth: boolean;
+    operatorAuth: boolean;
+}
 
 export default {
-    install(Vue: VueConstructor, options: any) {
+    install(Vue: VueConstructor, options: PlatformOption) {
         Vue.use(StoreConfig);
         Vue.use(RouterConfig);
         Vue.use(ApiConfig);
