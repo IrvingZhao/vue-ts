@@ -1,4 +1,4 @@
-declare interface UtilInstance {
+export interface UtilInstance {
     /**
      * 向缓存中添加数据
      * @param key 数据key

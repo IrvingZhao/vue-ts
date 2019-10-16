@@ -2,7 +2,7 @@ import {Component, Prop, Vue} from "vue-property-decorator";
 import {CreateElement, VNode} from "vue";
 
 @Component<TimesIterator>({
-    name: "xlb-time-iterator",
+    name: "xlb-times-iterator",
     render(createElement: CreateElement): VNode {
         const children = [];
         if (this.data && this.$scopedSlots.default) {
