@@ -1,10 +1,12 @@
-import {Prop, Vue, Watch} from "vue-property-decorator";
+import {Prop, Watch} from "vue-property-decorator";
+import RouterMethod from "@/platform/base/RouterMethod";
 
-export default abstract class EditPage extends Vue {
+export default abstract class EditPage extends RouterMethod { // 基础编辑页，继承 路由跳转方法
 
     abstract get editBread(): any;
 
     abstract get addBread(): any;
+
     protected breadSplice: number = 3;
 
     @Prop({required: true})
