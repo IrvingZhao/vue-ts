@@ -20,13 +20,3 @@ declare interface UtilInstance {
     dateFormat(date: Date | number, pattern: string): string;
 
 }
-
-declare module "vue/types/vue" {
-    interface Vue {
-        $util: UtilInstance;
-    }
-
-    interface VueConstructor {
-        $util: UtilInstance;
-    }
-}
