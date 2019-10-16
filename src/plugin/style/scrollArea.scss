@@ -1,0 +1,32 @@
+.scroll-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .scroll-control {
+    flex: 0 0 36px;
+    font-size: 36px;
+    color: #D8D8D8;
+    margin: 0 10px;
+
+    > i:hover {
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    &.disable > i:hover {
+      color: #D8D8D8;
+      cursor: default;
+    }
+  }
+
+  .scroll-content {
+    display: flex;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .scroll-item {
+    transition: margin-left 0.3s ease-in;
+  }
+}
