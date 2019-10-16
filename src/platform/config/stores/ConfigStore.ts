@@ -7,6 +7,7 @@ interface ConfigStoreState {
 }
 
 const store: Module<ConfigStoreState, any> = {
+    namespaced: true,
     state: {
         loginAuth: false,
         pageAuth: false,

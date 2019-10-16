@@ -60,7 +60,6 @@ const store: Module<UserStoreState, any> = {
     state: storeState,
     mutations: {
         userData(state: UserStoreState, data: any) {
-            console.info("user store userData");
             Util.setItem("login-user-info", data); // 写入缓存
             state.token = data.token;
             state.userInfo = {

@@ -31,27 +31,27 @@ function initAxios() {
         if (UserStore.token) {
             cfg.headers["access-token"] = UserStore.token;
         }
-        console.info("request interceptor==========", cfg);
         return cfg;
     });
 
     axiosInstance.interceptors.response.use((res) => {
         const {code, msg} = res.data;
-        if (code === "000000") {
-            loadingBarOperator.finish();
-        } else {
-            loadingBarOperator.error();
-            Notification({
-                message: "",
-                type: "error",
-                title: msg,
-                duration: 2000
-            });
+        if (code) {
+            if (code === "000000") {
+                loadingBarOperator.finish();
+            } else {
+                loadingBarOperator.error();
+                Notification({
+                    message: "",
+                    type: "error",
+                    title: msg,
+                    duration: 2000
+                });
+            }
+            if (code === "000003" || code === "000005") {
+                RouterConfig.getRouter().push("/login");
+            }
         }
-        if (code === "000003" || code === "000005") {
-            RouterConfig.getRouter().push("/login");
-        }
-        console.info("response interceptor ===========");
         return res.data;
     });
 
