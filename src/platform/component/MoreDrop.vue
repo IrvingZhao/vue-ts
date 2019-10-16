@@ -14,7 +14,7 @@
 <script lang="ts">
     import {Component, Prop} from "vue-property-decorator";
     import {namespace} from "vuex-class";
-    import {RouterMethod} from "@/platform/base";
+    import {RouterMethod} from "@/platform";
 
     const ConfigStore = namespace("base_config");
 

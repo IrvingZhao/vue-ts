@@ -37,3 +37,6 @@ export default {
         };
     }
 };
+
+export * from "./component";
+export * from "./base";
