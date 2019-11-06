@@ -69,19 +69,19 @@ const getPropByPath = (obj: any, path: string, strict?: boolean): { o: any, k: s
             const closeIcon = this.table.closeIcon || "el-icon-my-folder-close";
             const normalIcon = this.table.normalIcon || "el-icon-my-file";
 
+            const folderIconClass: any = {"expand-icon": true};
+            folderIconClass[openIcon] = rowActive;
+            folderIconClass[closeIcon] = !rowActive;
+            const normalIconClass: any = {"expand-icon": true};
+            normalIconClass[normalIcon] = true;
+
+
             return (
                 <div class="col" style={{flex: this.columnWidth}} key={"column" + rIndex + index}>
                     <div class="col-content"
                          style={index === 0 ? ("padding-left:" + (level * 20 + 15) + "px") : ""}>{index === 0 ? (hasChildren ?
-                        <i class={{
-                            "expand-icon": true,
-                            openIcon: rowActive,
-                            closeIcon: !rowActive
-                        }}/> :
-                        <i class={{
-                            "expand-icon": true,
-                            normalIcon: true,
-                        }}/>) : ""}{render()}</div>
+                        <i class={folderIconClass}/> :
+                        <i class={normalIconClass}/>) : ""}{render()}</div>
                 </div>
             );
         };
