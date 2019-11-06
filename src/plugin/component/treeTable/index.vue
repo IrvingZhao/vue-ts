@@ -26,11 +26,6 @@
     export default class TreeTable extends Vue implements TreeTableClass {
 
         public $refs!: { tableHead: HTMLElement, tableHeaderComponent: TableHead, tableBodyComponent: TableBody };
-        @Prop(Array)
-        private data!: any[];
-
-        @Prop({type: String, default: "children"})
-        private childProp!: string;
 
         @Prop({type: String})
         public normalIcon!: string;
@@ -40,6 +35,12 @@
 
         @Prop({type: String})
         public closeIcon!: string;
+
+        @Prop(Array)
+        private data!: any[];
+
+        @Prop({type: String, default: "children"})
+        private childProp!: string;
 
         @Provide("table")
         private table: TreeTableClass = this;
