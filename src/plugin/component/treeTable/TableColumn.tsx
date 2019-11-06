@@ -65,6 +65,9 @@ const getPropByPath = (obj: any, path: string, strict?: boolean): { o: any, k: s
                     return TableColumn.DEFAULT_RENDER_CELL(createElement, {row, column: me, $index: rIndex});
                 }
             };
+            const openIcon = this.table.openIcon || "el-icon-my-folder-open";
+            const closeIcon = this.table.closeIcon || "el-icon-my-folder-close";
+            const normalIcon = this.table.normalIcon || "el-icon-my-file";
 
             return (
                 <div class="col" style={{flex: this.columnWidth}} key={"column" + rIndex + index}>
@@ -72,10 +75,13 @@ const getPropByPath = (obj: any, path: string, strict?: boolean): { o: any, k: s
                          style={index === 0 ? ("padding-left:" + (level * 20 + 15) + "px") : ""}>{index === 0 ? (hasChildren ?
                         <i class={{
                             "expand-icon": true,
-                            "el-icon-my-folder-open": rowActive,
-                            "el-icon-my-folder-close": !rowActive
+                            openIcon: rowActive,
+                            closeIcon: !rowActive
                         }}/> :
-                        <i class="expand-icon el-icon-my-file"/>) : ""}{render()}</div>
+                        <i class={{
+                            "expand-icon": true,
+                            normalIcon: true,
+                        }}/>) : ""}{render()}</div>
                 </div>
             );
         };
