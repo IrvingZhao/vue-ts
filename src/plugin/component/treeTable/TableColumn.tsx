@@ -30,16 +30,6 @@ const getPropByPath = (obj: any, path: string, strict?: boolean): { o: any, k: s
     };
 };
 
-const DEFAULT_RENDER_CELL = (h: CreateElement, {row, column, $index}: { row: any, column: TableColumn, $index: number }): VNode => {
-    if (column && column.formatter) {
-        return column.formatter(h, row, column, $index);
-    } else {
-        const property = column.property;
-        const value = property && getPropByPath(row, property).v;
-        return (<span>{value}</span>);
-    }
-};
-
 @Component<TableColumn>({
     name: "xlb-tree-table-column",
     created() {
@@ -72,7 +62,7 @@ const DEFAULT_RENDER_CELL = (h: CreateElement, {row, column, $index}: { row: any
                 if (this.$scopedSlots.default) {
                     return this.$scopedSlots.default({row, column: me, $index: rIndex});
                 } else {
-                    return DEFAULT_RENDER_CELL(createElement, {row, column: me, $index: rIndex});
+                    return TableColumn.DEFAULT_RENDER_CELL(createElement, {row, column: me, $index: rIndex});
                 }
             };
 
@@ -92,15 +82,26 @@ const DEFAULT_RENDER_CELL = (h: CreateElement, {row, column, $index}: { row: any
 
         if (this.table) {
             this.table.addColumns({
-                label: "",
+                label: this.label,
                 renderHeader,
                 renderCell
             });
         }
 
-    }
+    },
+    render: (): any => undefined,
 })
 export default class TableColumn extends Vue {
+
+    public static DEFAULT_RENDER_CELL(h: CreateElement, {row, column, $index}: { row: any, column: TableColumn, $index: number }): VNode {
+        if (column && column.formatter) {
+            return column.formatter(h, row, column, $index);
+        } else {
+            const property = column.property;
+            const value = property && getPropByPath(row, property).v;
+            return (<span>{value}</span>);
+        }
+    }
 
     get columnWidth(): string {
         let num = 0;

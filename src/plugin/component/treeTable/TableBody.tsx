@@ -61,7 +61,7 @@ export default class TableBody extends Vue {
         tableBodyContent: HTMLElement
     };
 
-    @Prop(Object)
+    @Prop(Array)
     private columns!: ColumnRenderConfig[];
 
     @Prop(Array)
