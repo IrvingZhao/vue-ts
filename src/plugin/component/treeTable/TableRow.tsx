@@ -8,11 +8,18 @@ import {VNode} from "vue";
         const children = [];
         const rowChildren = this.row[this.childProp];
         const hasChildren = rowChildren && rowChildren.length > 0;
-        const bodyColumn = this.columns.forEach((column: ColumnRenderConfig, cIndex: number) => {
-            return column.renderCell(h, {});
+        const bodyColumn = this.columns.map((column: ColumnRenderConfig, cIndex: number) => {
+            return column.renderCell(h, {
+                row: this.row,
+                rIndex: this.rIndex,
+                index: cIndex,
+                level: this.computedChildLevel,
+                hasChildren,
+                rowActive: this.activeHeightParam.active
+            });
         });
         children.push(
-            <div class="row body" key={"row" + this.rIndex} onClick={this.rowClick()}>
+            <div class="row body" key={"row" + this.rIndex} onClick={this.rowClick}>
                 {bodyColumn}
             </div>
         );
@@ -40,8 +47,8 @@ export default class TableRow extends Vue {
     @Prop(Array)
     private columns!: ColumnRenderConfig[];
 
-    @Prop(Number)
-    private childLevel: number = 0;
+    @Prop({type: Number, default: 0})
+    private childLevel!: number;
 
     @Prop(String)
     private childProp!: string;
@@ -53,5 +60,9 @@ export default class TableRow extends Vue {
 
     private rowClick() {
         this.activeHeightParam.active = !this.activeHeightParam.active;
+    }
+
+    private get computedChildLevel() {
+        return this.childLevel;
     }
 }
