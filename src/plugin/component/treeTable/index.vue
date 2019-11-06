@@ -6,8 +6,8 @@
             </div>
         </div>
         <div class="table-body-area" ref="tableBody">
-                        <table-body ref="tableBodyComponent" :columns="columns" :data="data"
-                                    @tableBodyScroll="tableBodyScroll" :childProp="childProp"></table-body>
+            <table-body ref="tableBodyComponent" :columns="columns" :data="data"
+                        @tableBodyScroll="tableBodyScroll" :childProp="childProp"></table-body>
         </div>
         <slot></slot>
     </div>
@@ -41,6 +41,15 @@
 
         @Prop({type: String, default: "children"})
         private childProp!: string;
+
+        @Prop({type: String})
+        public normalIcon!: string;
+
+        @Prop({type: String})
+        public openIcon!: string;
+
+        @Prop({type: String})
+        public closeIcon!: string;
 
         @Provide("table")
         private table: TreeTableClass = this;
