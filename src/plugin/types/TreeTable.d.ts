@@ -21,11 +21,19 @@ export interface RenderHeadConfig {
 }
 
 export interface TreeTableClass {
+
+    normalIcon?: string;
+
+    openIcon?: string;
+
+    closeIcon?: string;
+
     addColumns(column: ColumnRenderConfig): void;
 
     tableBodyScroll(target: HTMLElement): void;
 
     pageResizeHandle(): void;
+
 }
 
 // export interface ItemColumn {
