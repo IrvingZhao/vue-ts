@@ -42,15 +42,6 @@
         @Prop({type: String, default: "children"})
         private childProp!: string;
 
-        @Prop({type: String})
-        public normalIcon!: string;
-
-        @Prop({type: String})
-        public openIcon!: string;
-
-        @Prop({type: String})
-        public closeIcon!: string;
-
         @Provide("table")
         private table: TreeTableClass = this;
 
