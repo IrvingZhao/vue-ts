@@ -1,4 +1,4 @@
-import {Route} from "vue-router";
+import {RouteConfig} from "vue-router";
 
-const routes: Route[] = [];
+const routes: RouteConfig[] = [];
 export default routes;
